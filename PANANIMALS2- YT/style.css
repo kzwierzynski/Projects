@@ -1,0 +1,323 @@
+@import 'https://fonts.googleapis.com/css?family=Alegreya+Sans';
+
+/* reset style -> usuwamy wszelkie naszłości, totalne wyzerowanie odstępów, można dodać więcej atrybutów */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #F5F5F5;
+    color: #67727A;
+    font-family: "alegreya", sans-serif; //Tahoma, Verdana, sans-serif;
+    margin: 0;
+}
+
+h2{
+    font-size: 250%;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 2%;
+    color: #f5f5f5;
+}
+h3{
+    font-size: 175%;
+    font-weight: 400;
+    line-height: 155%;
+    /* text-align: center; */
+    padding: 5% 0;
+    color: #f5f5f5;
+}
+p{
+    font-family: "alegreya sans", sans-serif; //"Tahoma sans";
+    font-size: 160%;
+    line-height: 150%;
+    text-indent: 2%;
+    text-align: justify;
+    padding: 3%;
+    color: #f5f5f5;
+    /* font-weight: 400; */
+}
+
+img{
+    max-width: 100%;
+    /*max-height: 600px;*/
+    height: auto;
+    width: auto;
+    margin-bottom: -4px;
+}
+
+header{
+    background-color: #6991ac;
+    width: 100%;
+    height: 86px;
+}
+
+#header-inner{
+    max-width: 1200;
+    margin: 0 auto;
+}
+
+#logo {
+    /* display: hidden; */
+    /* np. jeśli tylko do strony dla telefonu ma być widoczne */
+    float: left;
+    margin: 20px;
+    height: 82px;
+    width: 82px;
+    background: url("img_new/Pananimals_logo1.png") no-repeat center;
+    /* obrazek jako tło, bez powielania (zawsze tylko 1 obrazek), w środku */
+    /* list-style-type: none; */
+}
+/* Navigation Start  */
+nav{
+    float: right;
+    padding: 25px 20px 0 0;
+    /*align-self: center;*/
+}
+#menu-icon{
+  display: hidden;
+  width: 40px;
+  height: 40px;
+  background: url("img/nav.png") center;
+}
+a:hover#menu-icon{
+  border-radius: 4px 4px 0 4px;
+}
+ul{
+  list-style-type: none;
+}
+nav ul li{
+  font-family: "alegreya sans", sans-serif;
+  font-size: 150%;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+}
+nav ul li a{
+  color: #f5f5f5;
+  text-decoration: none;
+}
+nav ul li a:hover{
+  color: #c3d7df;
+}
+.current{
+  color: #c3d7df;
+}
+/*Nav end*/
+/*BANNER start*/
+.banner{
+  width: 100%;
+  background-color: #6991ac;
+}
+.banner-inner{
+  max-width: 1100px;
+  /*max-height: 600px;*/
+  margin: 0 auto;
+}
+
+.div4{
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+
+#html{
+  background-color: #f1aa90;
+}
+#css{
+  background-color: #beb9ad;
+}
+#design{
+  background-color: #aadcd2;
+}
+#social{
+  background-color: #a2b2c1;
+}
+
+.div4 i{
+  font-size: 500%;
+  color: #f0f0f0;
+  padding: 13% 0 4% 0;
+}
+
+.inner-wrapper-1{
+  float: left;
+  width: 100%;
+  background-color: #c3d7df;
+}
+
+article {
+  float: left;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+#tablet{
+  background-color: #c3d7df;
+}
+aside {
+  float: right;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+#tablet2{
+  background-color: #a2b1c1;
+}
+#mobile{
+  background-color: #beb9ad;
+}
+#desktop{
+  background-color: #f1aa90;
+}
+
+.inner-wrapper-2{
+  float: right;
+  width: 100%;
+  background-color: #c3d7df;
+}
+
+.inner-wrapper-3{
+  float: left;
+  width: 100%;
+  background-color: #aacdcf; //aadcd2;
+}
+
+.div3{
+   width: 33.33333333%;
+   float: left;
+   text-align: center;
+}
+
+#google{
+  background-color: #a2b1c1;
+}
+#marketing{
+  background-color: #beb9ad;
+}
+#customers{
+  background-color: #aacdcf; //aadcd2;
+}
+
+#smiley {
+  background-color: #aacdcf; //aadcd2;
+  padding: 0 0 1%;
+  clear: both;
+  /*dodatkowo daje warstwę z góry i dołu, żeby oddzielić*/
+}
+
+/*---- Footer Start-----*/
+footer{
+  background-color: #6991ac;
+  width: 100%;
+}
+
+.follow1{
+  list-style-type: none;
+  text-align: center;
+
+}
+
+.follow1 li {
+  display: inline;
+}
+
+.follow1 i{
+  font-size: 460%;
+  margin: 1%;
+  padding: 5% 5% 5% 4%;
+  color: #c3d7df;
+}
+
+.follow1 i:hover{
+  color: #f5f5f5;
+}
+
+footer.socket{
+  border-top: 1px solid #aadcd2;
+  background-color: #544b59;
+  max-height: 55px;
+  /*text-align: center;*/
+  margin: 0;
+}
+
+footer.socket p{
+  padding: 5px 0 9px 0;
+  text-align: center;
+}
+
+/*------ MEDIA QUERIES ---------------------*/
+@media screen and (max-width: 768px){
+  h2{
+    font-size:150%;
+  }
+  h3{
+    font-size: 125%;
+  }
+  p{
+    font-size: 120%;
+  }
+  header{
+    position: absolute;
+    /*ważne do pozycjonowania mniejszego headeru*/
+  }
+  #logo{
+    /*margin: : 15px 0 20px -25px;
+    background:  url("img_new/Pananimals_logo1.png") no-repeat center;*/
+  }
+  #menu-icon{
+    display: inline-block;
+    /*display: block;*/
+  }
+  nav ul, nav:active ul {
+    display: none;
+    z-index: 1000;
+    /*   z-index wysoki -> że bardzo ważny styl, ma być wyświetlany na wierzchu wszystkiego*/
+    position: absolute;
+    padding: 20px;
+    background: #6991ac;
+    right: 20px;
+    top: 60px;
+    border: 1px solid #fff;
+    border-radius: 8px 0 8px 2px;
+    /* border-radius -> do zaokrąglania rogów */
+    width: 40%;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  nav li{
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+  .banner{
+    padding-top: 86px;
+    /* 86px - żeby pod headerem się zaczynał (bo header jest tu absolute) */
+  }
+  .div4{
+  /*float: left;*/
+    width: 100%;
+  }
+  .div4 i{
+    font-size: 350%;
+    padding: 4% 0 0 0;
+  }
+  article{
+    width: 100%;
+  }
+  aside{
+    width: 100%;
+  }
+  .hand-mobile{
+    display: none;
+  }
+  .div3{
+    width: 100%;
+  }
+  .follow1 i{
+    font-size: 200%;
+  }
+}

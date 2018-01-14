@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html>
+<head>
+	<script type="text/javascript">
+		function isOk(regEx, input, id_help, msgStr){
+
+			if(!regEx.test(input)){				//if content that was input does not pass the validation
+				if (id_help != null){
+					while(id_help.firstChild){
+					id_help.removeChild(id_help.firstChild);
+					}
+				id_help.appendChild(document.createTextNode(msgStr));
+				//id_help.value=msgStr;
+				return false;
+				}
+			}else{
+				if (id_help != null){
+					while(id_help.firstChild){
+						id_help.removeChild(id_help.firstChild);
+					}
+				}
+			}
+		}
+
+		function checkName(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid name";
+			return isOk(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, id.value, helpId, helpString);
+		}
+		function checkAddr(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid address, eg.: Mł. Patriotów 6/20";
+			// return isOk(/^[A-z0-9]+[' .-,]+[A-z0-9 ]*\d+[/A-z.]{0,2}\d*/, id.value, helpId, helpString);
+			return isOk(/^[A-z0-9 -'.]{5,40}/, id.value, helpId, helpString);
+		}
+		function checkCity(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid city name, eg.: Warszawa";
+			return isOk(/^[A-z -]{2,20}/, id.value, helpId, helpString);
+		}
+		function checkState(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid US state code, eg.: CA";
+			return isOk(/^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/, id.value, helpId, helpString);
+		}
+		function checkPhone(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid phone no. eg. +48 513 636 893";
+			return isOk(/^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/, id.value, helpId, helpString);
+		}
+		function checkEmail(id, helpId){
+			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
+			var helpString="Please, enter a valid email address eg. pananimals@pan-animals.pl";
+			return isOk(/[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/, id.value, helpId, helpString);
+		}
+		function checkDivide(helpId){
+			var var1 = document.getElementById("divide1").value;
+			var var2 = document.getElementById("divide2").value;
+			try{
+				if (!var1 || !var2){
+					throw new Error("Please, enter both numerical values.");
+				}else if (isNaN(var1) || isNaN(var1)){
+					throw new Error("Please, enter numerical values only.");
+				}else if (var2==0){
+					throw new Error("You cannot divide by zero.");
+				}
+				while(helpId.firstChild){
+					helpId.removeChild(helpId.firstChild);
+				}
+				helpId.appendChild(document.createTextNode(var1," / ",var2," = ",var1/var2));
+			}catch(errMsg){
+				while(helpId.firstChild){
+					helpId.removeChild(helpId.firstChild);
+				}
+				helpId.appendChild(document.createTextNode(errMsg));
+			}
+			return true;
+		}
+
+		// function cookieCreate(idName){
+		// 	var expDate = new Date();
+		// 	expDate.setMonth(expDate.getMonth()+1);
+		// 	// alert(expDate);
+		// 	var newCookie = document.getElementById(idName).value;
+		// 	document.cookie=idName + "=" + newCookie +"; path=/; expires="+expDate.toGMTString();
+		// 	// document.cookie=idName + "=" + newCookie;
+		// 	alert(document.cookie);
+		// }
+
+		// function cookieGet(idName){
+		// 	var allCookies = document.cookie.split(";");
+		// 	var cookieStr = "";
+		// 	cookieToGet = document.getElementById(idName).value;
+		// 	//alert(typeof(allCookies) + "\n" + allCookies.length + "\n" + allCookies[0]);
+		// 	for (let i = 0; i < allCookies.length; i++) {
+		// 		var letterNo = allCookies[i].indexOf(cookieToGet);
+		// 		if (letterNo != -1) {
+		// 			var cleanCookies= allCookies.replace(" ", "");
+		// 			var cookieStr=cleanCookies.substring(idName.length+1);
+		// 			alert("Cookie name " + cookieStr);
+		// 		}
+		// 	}
+		// }
+
+		// function delCookie(idName){
+		// 	cookieToDel = document.getElementById(idName);
+		// 	cookieDelVal= cookieToDel.value;
+		// 	var allCookies = document.cookie.split(";");
+		// }
+
+	</script>
+
+	<style>
+		body {
+			padding: 10px;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<div>
+		Name:
+		<input type="text" id="fname" name="fname" onblur="checkName(this, document.getElementById('help_name'))" />
+		<span id="help_name"></span>
+	</div>
+	<div>
+		Address:
+		<input type="text" id="faddr" name="faddr" onblur="checkAddr(this, document.getElementById('help_addr'))" />
+		<span id="help_addr"></span>
+	</div>
+	<div>
+		City:
+		<input type="text" id="fcity" name="fcity" onblur="checkCity(this, document.getElementById('help_city'))" />
+		<span id="help_city"></span>
+	</div>
+	<div>
+		State code:
+		<input type="text" id="fstate" name="fstate" onblur="checkState(this, document.getElementById('help_state'))" />
+		<span id="help_state"></span>
+	</div>
+	<div>
+		Phone no:
+		<input type="text" id="fphone" name="fphone" onblur="checkPhone(this, document.getElementById('help_phone'))" />
+		<span id="help_phone"></span>
+	</div>
+	<div>
+		Email:
+		<input type="text" id="femail" name="femail" onblur="checkEmail(this, document.getElementById('help_email'))" />
+		<span id="help_email"></span>
+	</div>
+	<hr>
+
+	<div>
+		Insert 2 numbers do be divided: <br>
+		<input type="text" name="divide1" id="divide1"><br>
+		<input type="text" name="divide2" id="divide2"><br>
+		<button name="divButton" id="divButton" onclick="checkDivide(document.getElementById('help_divide'))">Divide</button>
+		<span id="help_divide"></span>
+	</div>
+	<hr>
+<!-- 	Cookies
+	<div>
+		<p>First name: 
+			<input type="text" id="firstname" name="firstname" size="30">
+			<button id="createFname" onClick="cookieCreate('firstname');">Create First name</button>
+		</p>
+		<p>Surname: 
+			<input type="text" id="surname" name="surname" size="30" onBLur="cookieCreate('surname');">
+			<button id="createSname" onClick="cookieCreate('surname');">Create Surname</button>
+		</p>
+		<p>Get cookie: 
+			<input type="text" id="cGetName" name="cGetName" size="30">
+			<button id="getCookie" onClick="cookieGet('cGetName');">Get Cookie name</button>
+		</p>
+		<p>Delete cookie: 
+			<input type="text" id="cDelName" name="cDelName" size="30">
+			<button id="delCookie" onClick="cookieDel('cDelName');">Delete Cookie</button>
+		</p>
+	</div> -->
+	<!-- <script type="text/javascript">
+		document.cookie = "firstname=Chris";
+		document.write("All the cookies: " + document.cookie);
+	</script> -->
+	
+</body>
+
+</html>

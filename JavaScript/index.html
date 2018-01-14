@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html>
+<head>
+	<script type="text/javascript">
+	
+
+		function person(name, age){
+			this.name = name;
+			this.age = age;
+			this.yearsUntilRetire = yearsTo;
+		}
+		var chris = new person("Chris Zw", 28);
+		
+		taylor={name:"taylor swift", age:25};
+		// var taylor = new person("Taylor Swift", 24);
+
+		function yearsTo(){
+			var numYears = 65 - this.age;
+			return numYears;
+		}
+		var people = new Array("Tom", "Ana", "Greg", "Chris");
+
+		var People = new Array();			//we create empty array with space reserved for 3 entries
+		People[0]="Tom";				//adding values afterwards
+		People[2]="Ana";
+		People[8]="Greg";
+
+		var dudes = new Array("John", "Tom", "Adam");
+		var chicks = new Array("Lisa", "Ana", "Sara");
+		var people = dudes.concat(chicks);
+
+		var ppl = [{name: "Greg", age: 32}, {name: "Ana", age: 25}, {name: "Rock", age: 43}];
+		function ageOver(element){
+			return element.age >30;
+		}
+
+		var res = ppl.every(ageOver);
+		var res1 = ppl.some(ageOver);
+		var res2 = ppl.filter(ageOver);
+
+	</script>
+	
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		function addMany(a,b,c,d,e,f){		//Overloading of the method
+			var i=0;
+			var sum=0;
+			document.write("<br />Arguments length: " + arguments.length);
+
+			while (i < arguments.length){
+				sum = sum + arguments[i];
+				i++;
+			}	
+			document.write('<br />Sum of args: ' + sum + "<br />");
+			// for (var j = 0; j < arguments.length; j++) {
+			// 	document.write(arguments[j]+"<br />");
+			// }
+			return true;	
+		}
+
+		addMany(1,1,1,1,2,1,1,1,1);
+
+
+		var longStr = "Chris 123 Main St Pittsburgh 15457 (0048)-513-636893 k.zwierzynski@it-sp.pl";
+		var email = /[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/;
+		document.write(longStr.search(/[A-Za-z]{1,15}\s/)+ "<br />");	
+		document.write(longStr.search(email)+ "<br />");
+		document.write(longStr.replace(/\d{5}/g, "55555"));
+
+		function times2arr(anArray){
+			var lArray=[];
+			for (i = 0; i < anArray.length; i++) {
+				lArray.push(anArray[i]*2);
+			}
+			return lArray;
+		}
+
+		var someArray = [1,2,3,4,5];
+		document.write("<hr /> function returning variable number of arguments using an array <br />");
+		document.write("fcn tiems2arr for the following array: ", someArray.toString()," is: ", times2arr(someArray), "<br />");
+		document.write("fcn tiems2arr for the following array: [0,1,2,3,4,5,6,7] is: " + times2arr([0,1,2,3,4,5,6,7]) + "<br />");
+
+		function f1(){
+			alert("auch!");
+		}
+		var x="what up?";
+		var y=2.345;
+		document.write(chris.yearsUntilRetire()+"<br />");
+		document.write(taylor.name+"<br />");
+		document.write(taylor.age+"<br />");
+		document.write(People.length+"<br />");
+		document.write(people+"<br />");
+		
+		for (var i = 0; i <= ppl.length - 1; i++) {
+			document.write("<br />"+ppl[i].name + " " + ppl[i].age);
+		}
+		document.write("<br />"+res);
+		document.write("<br />"+ppl.some(ageOver));
+		for (var i = 0; i <= res2.length - 1; i++) {
+			document.write("<br />"+res2[i].name + " " + res2[i].age);
+		}
+		// document.write(y.value);
+		// document.size
+
+
+		
+	</script>	
+
+	<form>	<input type="button" value="clickme" onClick="alert(x); alert('Alarm2!');">	</form>
+</body>
+
+</html>

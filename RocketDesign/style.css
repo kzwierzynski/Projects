@@ -1,0 +1,225 @@
+@import 'https://fonts.googleapis.com/css?family=Alegreya+Sans';
+
+/* reset style -> usuwamy wszelkie naszłości, totalne wyzerowanie odstępów, można dodać więcej atrybutów */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #f5f5f5;
+    color: #67727a;
+    font-family: "Alegreya" sans-serif;
+    margin: 0;
+}
+
+h2{
+    font-size: 250%;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 2%;
+    color: #f5f5f5;
+}
+h3{
+    font-size: 175%;
+    font-weight: 400;
+    line-height: 155%;
+    /* text-align: center; */
+    padding: 5% 0;
+    color: #f5f5f5;
+}
+p{
+    font-family: "Alegreya sans", sans-serif;
+    color: #f5f5f5;
+    font-size: 160%;
+    line-height: 150%;
+    text-indent: 2%;
+    text-align: justify;
+    padding: 3%;
+    /* font-weight: 400; */
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.banner-img{
+    max-width: 90%;
+    /*max-height: auto;*/
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -4px;
+}
+
+
+/* HEADER start */
+header{
+    background-color: #6991ac;
+    width: 100%;
+    height: 86px;
+}
+
+#header-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#logo {
+    /* display: hidden; */
+    /* np. jeśli tylko do strony dla telefonu ma być widoczne */
+    float: left;
+    margin: 10px;
+    height: 70px;
+    width: 100px;
+    background: url("img_new/Pananimals_logo1.png") no-repeat center;
+    /* obrazek jako tło, bez powielania (zawsze tylko 1 obrazek), w środku */
+    /* list-style-type: none; */
+}
+nav{
+    float: right;
+    padding: 25px 20px 0 0;
+    /*align-self: center;*/
+}
+#menu-icon{
+  display: hidden;
+  width: 40px;
+  height: 40px;
+  background: url(img.nav.png) center;
+}
+a:hover#menu-icon{
+  border-radius: 4px 4px 0 0;
+}
+ul{
+  list-style-type: none;
+}
+nav ul li{
+  font-family: "alegreya sans", sans-serif;
+  font-size: 150%;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+}
+nav ul li a{
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+nav ul li a:hover{
+  color: #c3d7df;
+}
+.current{
+  color: #c3d7df;
+}
+/*Nav end*/
+/*BANNER start*/
+.banner{
+  width: 100%;
+  background-color: #6991ac;
+}
+.banner#inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  /*max-height: 600px;*/
+}
+
+.div3{
+  width: 33.3333333%;
+  float: left;
+  text-align: center;
+}
+#html {
+  background-color: #F1AA90;
+}
+#css{
+  /*background-color: #BEB9AD;*/
+  background-color: #AADCD2;
+}
+#design{
+  /*background-color: #AADCD2;*/
+  background-color: #a2b2c1;
+}
+
+.div3 i {
+color: #f0f0f0;
+font-size: 500%;
+padding: 13% 0 4% 0;
+}
+
+.div2a{
+  float: left;
+  width: 100%;
+  background-color: #c3d7Df;
+}
+.div2b{
+  float: left;
+  width: 100%;
+  background-color: #c3d7df;
+}
+
+article{
+  float: left;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+#platforms{
+  background-color: #a2b1c1;
+}
+aside{
+  float: right;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+#platforms2{
+  background-color: #c3d7df;
+}
+#craft{
+  background-color: #f1aa90;
+}
+#smiley {
+  background-color: #aadcd2;
+    padding: 0 0 1%;
+    clear: both;
+}
+
+
+/*START FOOTER*/
+footer{
+  background-color: #6991ac;
+  width: 100%;
+}
+#follow{
+  list-style-type: none;
+  text-align: center;
+}
+#follow li{
+  display: inline;
+}
+#follow i{
+  font-size: 460%;
+  margin: 1%;
+  padding:5% 5% 5% 4%;
+  color: #c3d7df;
+}
+
+#follow i:hover{
+  color: #f5f5f5;
+}
+
+footer#stopka{
+  border-top: 2px solid #aadcd2;
+  background-color: #544b59;
+  max-height: 50px;
+  margin: 0 auto;
+}
+footer#stopka p{
+  padding: 5px 0 9px 0;
+  text-align: center;
+}

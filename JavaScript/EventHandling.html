@@ -1,0 +1,153 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Events</title>
+	<style>
+		h3{
+			color: grey;
+		}
+		img{
+			max-height:50%;
+			max-width: 50%;
+		}
+	</style>
+
+</head>
+<body onLoad="alert('Webpage Loaded')" onresize="imgResize()">
+
+	<img id="logo" src="img/Pananimals_logo_XL.png" onclick="alertme()">
+	<h3 id="title" onmouseover="changeIt()" onMouseOut="changeItAgain()" ondblclick="alert('double clicked!');">Title of the page</h3><hr>
+	<form name="form1">
+		<p id="first">Paragraph1</p>
+		<p id="second">Paragraph2</p>
+		<p id="third">Paragraph3</p>
+		<input type="checkbox" id="check1" onclick="showPara()" checked>Paragraph1 <br>
+		<input type="checkbox" id="check2" onclick="showPara()" checked>Paragraph2 <br>
+		<input type="checkbox" id="check3" onclick="showPara()" checked>Paragraph3 <hr>
+	</form>
+	<form name="form2">
+		<p>Text input</p>
+		<input type="text" id="textin" onblur="alert('out of Focus');" onfocus="alert('In Focus');" onchange="alert('changed Value!');"> <hr>
+	</form>
+	<form name="form3">
+		<input type="text" name="mouseX">Mouse X <br>
+		<input type="text" name="mouseY">Mouse Y <br>
+		<input type="text" name="keypress">Key Pressed <br>
+		<input type="text" name="mouseclick">Mouse Button Clicked <br>
+	</form>
+	
+
+
+	<script .type="text/javascript">
+		var IE = (navigator.appName != "Netscape") ? true : false;
+
+		if(!IE){
+			document.captureEvents(Event.MOUSEMOVE);
+			document.captureEvents(Event.MOUSEDOWN);
+
+			document.onmousemove = mousePos;		// if mouse is moved pass the event to the function mousePos
+			document.onmousedown = mouseClicked;	// - || -
+			document.onkeypress = keyPressed;
+			var mouseX = 0;
+			var mouseY = 0;
+			var mouseClicked = 0;
+			var keyPressed = 0;
+		}
+		//alert(navigator.appName);
+
+		function mousePos(e){
+			if (!IE){
+				mouseX = e.pageX;
+				mouseY = e.pageY;	
+			} else {
+				mouseX = event.clientX + document.body.scrollLeft;
+				mousey = event.clientY + document.body.scrollTop;
+			}
+
+			document.form3.mouseX.value = mouseX;
+			document.form3.mouseY.value = mouseY;
+
+			return true;
+		}
+
+		function keyPressed(e){
+			if(!IE){
+				keyPressed = String.fromCharCode(e.charCode);
+			} else{
+				e = window.event;
+				keyPressed = e.keyCode;
+			}
+
+			if(!keyPressed){
+				return false;
+			}
+
+			document.form3.keypress.value = keyPressed;
+			return true;
+		}
+
+		function mouseClicked(e){
+			if(!IE) {
+				switch(event.button){
+					case 0:
+						document.form3.mouseclick.value = "Left";
+						break;
+					case 1:
+						document.form3.mouseclick.value = "Middle";
+						break;
+					default:
+						document.form3.mouseclick.value = "Right";
+						break;
+				}
+				return false;
+			} else {
+				switch(e.which){
+					case 1:
+						document.form3.mouseclick.value = "Left";
+						break;
+					case 2:
+						document.form3.mouseclick.value = "Middle";
+						break;
+					default:
+						document.form3.mouseclick.value = "Right";
+						break;
+				}
+				return false;
+			}
+		}
+
+		function imgResize(){
+			document.getElementById('logo').style.width="40%";
+			document.getElementById('logo').style.height="40%";
+			return true;
+		}
+		function alertme(){
+			alertmsg = document.getElementById('logo').src + "\n width: " + document.getElementById('logo').width + "\n height: " + document.getElementById('logo').height;
+			alert(alertmsg);
+			//alert(IE);
+			return true;
+		}
+		function changeIt(){
+			document.getElementById('title').style.color="red";
+			document.getElementById('title').firstChild.nodeValue="Changed Value";
+			return true;
+		}
+		function changeItAgain(){
+			document.getElementById('title').style.color="grey";
+			document.getElementById('title').firstChild.nodeValue="Title of the page";
+			return true;
+		}
+
+		function showPara(){
+			document.getElementById('first').style.visibility = (document.form1.check1.checked ? "visible" : "hidden");
+			document.getElementById('second').style.visibility = (document.form1.check2.checked ? "visible" : "hidden");
+			document.getElementById('third').style.visibility = (document.form1.check3.checked ? "visible" : "hidden");
+			return true;
+		}
+
+	</script>
+	
+</body>
+</html>
