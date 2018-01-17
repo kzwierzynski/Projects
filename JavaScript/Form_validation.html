@@ -69,11 +69,11 @@
 					helpId.removeChild(helpId.firstChild);
 				}
 				helpId.appendChild(document.createTextNode(var1," / ",var2," = ",var1/var2));
-			}catch(errMsg){
+			}catch(errorMsg){
 				while(helpId.firstChild){
 					helpId.removeChild(helpId.firstChild);
 				}
-				helpId.appendChild(document.createTextNode(errMsg));
+				helpId.appendChild(document.createTextNode(errorMsg));
 			}
 			return true;
 		}
