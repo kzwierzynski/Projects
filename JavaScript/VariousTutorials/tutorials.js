@@ -203,13 +203,23 @@ let addImg = (src) => {
     document.body.appendChild(imgElement);
 };
 
-loadImage('./img/html5.png').then( (img1) => {
-    addImg(img1.src)
-    loadImage('./img/css3.png').then( (img2) => {
-        addImg(img2.src) 
-        loadImage('./img/Web-Design.png').then( (img3) => {
-            addImg(img3.src) 
+// not fully used composability, more like callbacks
+// loadImage('./img/html5.png').then( (img1) => {
+//     addImg(img1.src)
+//     loadImage('./img/css3.png').then( (img2) => {
+//         addImg(img2.src) 
+//         loadImage('./img/Web-Design.png').then( (img3) => {
+//             addImg(img3.src) 
     
-        })
-    })
-});
+//         })
+//     })
+// });
+
+// BETTER in this example:
+Promise.all([
+    loadImage('./img/html5.png'),
+    loadImage('./img/css3.png'),
+    loadImage('./img/Web-Design.png')
+]).then( (images) => images.forEach( img => addImg(img.src) ) ).catch((error => {
+    alert(error)
+}));
