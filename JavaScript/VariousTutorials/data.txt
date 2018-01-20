@@ -1,0 +1,6 @@
+Chris Zwierzyñski	blender	1	180
+Chris Zwierzyñski	TV	1	3000
+Chris Zwierzyñski	batteries	4	40
+Adam Smith	trimmer	1	120
+Adam Smith	brain	1	2200
+Adam Smith	leg	1	1200
