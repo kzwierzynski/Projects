@@ -332,6 +332,7 @@ var add_the_handlers = function (nodes) {
 };
 
 add_the_handlers(Document);
+// console.log(document.body.childNodes);
 
 
 

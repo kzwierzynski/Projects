@@ -1,0 +1,126 @@
+body
+{
+	margin: 0;
+	background-color: #26282E;
+	color: #209781;
+    font-family: 'Lobster', sans-serif;
+	font-size: 28px;
+	animation: fadein .5s;
+}
+
+a:link    { color: #209781; text-decoration: none; }
+a:visited { color: #209781; }
+a:active  { color: #209781; }
+a:hover   { color: #E9B64A; }
+
+h1 {
+	font-size: 48px;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 6px;
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+
+h2 {
+	font-size: 36px;
+	font-weight: 400;
+	text-align: center;
+	letter-spacing: 5px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+p{
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	margin: 10px auto;
+	letter-spacing: 3px;
+}
+.board{
+	width: 630px;
+	height: auto;
+	text-align: center;
+	background-color: rgb(35, 38, 44);
+	margin: 1% auto;
+	padding: 5px;
+	padding-top: 10px;
+	border: 4px ridge #26282E;
+	animation: fadein .8s;
+}
+.card{
+	width: 125px;
+	height: 125px;
+	background-image: url('img/karta.png');
+	display: inline-block;
+	margin: 5px 10px;
+	border: 5px groove #51c8b2;
+	border-radius: 5px;
+	filter: brightness(70%);
+	/* transition-delay: 0.3s; */
+	transition: all .3s ease-in-out;
+	cursor: pointer;
+	animation: fadein .3s;
+	transform: scaleX(-1) rotateY(-180deg);
+}
+.card:hover{
+	border: 5px groove #E9B64A;
+	filter: brightness(100%);
+}
+
+.cardActive{
+	width: 125px;
+	height: 125px;
+	/* background-image: url('img/karta.png'); */
+	display: inline-block;
+	margin: 5px 10px;
+	border: 5px groove #E9B64A;
+	border-radius: 5px;
+	filter: brightness(100%);
+	/* transition-delay: 0.3s; */
+	cursor: context-menu;
+	transition: all .3s ease-in-out;
+	animation: fadein .3s;
+}
+
+.btns{
+	width: auto;
+	text-align: center;
+	padding: 5px;
+	margin: 20px auto;
+	background-color: rgb(35, 38, 44);
+	border: 4px ridge #26282E;
+}
+
+.btnPair {
+	font-family: 'Lobster',sans-serif;
+    background-color:black;
+    border: outset 3px #51c8b2;
+    color: #51c8b2;
+	padding: 10px 32px;
+	margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 20px;
+	filter: brightness(70%);
+	transition: all .3s ease-in-out;
+	cursor: pointer;
+	text-shadow: 2px 2px #26282E;
+}
+
+.btnPair:hover{
+	border: 3px inset #E9B64A;
+	filter: brightness(100%);
+	color: #E9B64A;
+}
+
+.win{
+	color: #E9B64A;
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
