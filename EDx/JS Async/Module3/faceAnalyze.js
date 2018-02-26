@@ -26,7 +26,7 @@ function analyze(){
 	var request = new Request(uri, initObject);
 
 	fetch(request).then( (response) => {
-		// console.log(response);
+		console.log(response);
 		if (response.ok) {
 			return response.json();
 		} else {
@@ -38,6 +38,7 @@ function analyze(){
 	}).catch(function(err){
 		alert(err);  
 		document.getElementById("output").innerHTML = "";
+		document.getElementById("output").innerHTML = "No face detected";
 	});
 
 }
