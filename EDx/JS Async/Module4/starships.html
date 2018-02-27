@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<style>
+			table,th,td			{border: 1px solid black;}
+			td {width: 200px;}
+		</style>
+    </head>
+    <body>
+	<h3> Select two Starships from the dropdown lists to compare </h3>
+		<select name="ship1" id="ship1">
+		</select>
+		<select name="ship2" id="ship2">
+		</select>
+		<button	id="button">Compare</button>
+		<table id="table">
+			<tr>
+				<th></th>
+				<th><strong>Starship1</strong></th>
+				<th><strong>Starship2</strong></th>
+			</tr>
+			<tr>
+				<td id="name">Name</td>
+				<td id="name1"></td>
+				<td id="name2"></td>
+			</tr>
+			<tr>
+				<td id="cost">Cost</td>
+				<td id="cost1"></td>
+				<td id="cost2"></td>
+			</tr>
+			<tr>
+				<td id="speed">Speed</td>
+				<td id="speed1"></td>
+				<td id="speed2"></td>
+			</tr>
+			<tr>
+				<td id="cargo">Cargo load</td>
+				<td id="cargo1"></td>
+				<td id="cargo2"></td>
+			</tr>
+			<tr>
+				<td id="pass">Passsengers</td>
+				<td id="pass1"></td>
+				<td id="pass2"></td>
+			</tr>
+		</table>
+
+
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+
+	<script src="starships.js"></script> 
+	</body>
+</html>
