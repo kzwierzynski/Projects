@@ -72,4 +72,95 @@ function *gen2(){
 }
 
 run(gen2).then(x => console.log(x))
-        .catch(err => console.log(err.message)); //logs "error message!" from the rejected Promise
+		.catch(err => console.log(err.message)); //logs "error message!" from the rejected Promise
+		
+		
+function* genFunc(){
+	var a = yield;
+	console.log(a); 
+	var b = yield;
+	console.log(b); 
+	var c = yield; 
+	console.log(c); 
+	var d = yield; 
+	console.log(d); 
+
+	return "finished!"; 
+}
+
+var genObject = genFunc();
+
+var v = genObject.next(123); 
+var w = genObject.next(456); 
+var x = genObject.next(789); 
+var y = genObject.throw("error thrown!");
+var z = genObject.next(0); 
+
+//-----------------------------------
+
+function* genFuncA() {
+    yield 1;
+    yield 2;
+    return 3;
+}
+
+function* genFuncB(){
+    yield 4;
+    var temp = yield* genFuncA(); 
+    yield 5;
+    yield temp;
+    return 6;
+}
+
+var arr = [...genFuncB()]
+console.log(arr);
+
+//-----------------------------------
+
+function timedReject(val,time){
+    var promise = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            reject(val)
+        },time);
+    });
+    return promise;
+
+}
+
+function timedResolve(val,time){
+    var promise = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            resolve(val)
+        },time);
+    });
+    return promise;
+
+}  
+var myPromise1 = timedReject(1,200)
+var myPromise2 = timedResolve(2,400)
+var myPromise3 = timedResolve(3,300)
+
+var myPromise4 = Promise.all([myPromise1,myPromise2]).then(function(){
+    return 4;
+});
+
+Promise.race([myPromise3,myPromise4]).then(function(val){
+    console.log(val);
+}).catch(function(err){
+    console.log("Error: " + err)
+});
+
+//----------------------------------------------------------------
+
+function myFunction(x,doStuff){
+	doStuff(x + x);
+ }
+ 
+ myFunction(5,function(x){
+	 myFunction(x + 3,function(x){
+		var result = x - 3;
+		myFunction(result,function(x){
+			console.log(x);
+		})
+	 })
+ })

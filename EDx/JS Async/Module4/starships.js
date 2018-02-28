@@ -49,7 +49,7 @@ function *gen(){
 		//fetch the ship
 		let shipObj = yield fetch(url);
 		let shipData = yield shipObj.json();
-		console.log(shipData);
+		// console.log(shipData);
 		for (let j = 0; j < attrIds.length; j++) {
 			let tempId = attrIds[j]+String(i+1);
 			let tempEl = document.getElementById(tempId);
