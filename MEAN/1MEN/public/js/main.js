@@ -6,7 +6,7 @@ $(document).ready(()=>{
         if(confirmation){
             $.ajax({
                 type: "DELETE",
-                url: "/article/"+id,
+                url: "/articles/"+id,
                 success: (repsonse)=>{
                     alert("Article Deleted");
                     window.location.href ='/';

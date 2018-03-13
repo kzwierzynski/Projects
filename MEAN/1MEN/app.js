@@ -49,9 +49,9 @@ app.use(expressValidator());
 //Middleware for express-session
 app.use(session({
     secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    resave: true,
+    saveUninitialized: true
+    // cookie: { secure: true }
   }));
 
 // Middleware for express-messages
@@ -80,86 +80,11 @@ app.get('/', function(req, res){
     
 });
 
-//add route
-app.get('/articles/add', function(req, res){
-    res.render('addArticle', {
-        title: 'Add an Article'
-    });
-});
+// ------ROUTE files-----------------------
+let articles = require('./routes/articles');
+app.use('/articles', articles);
 
-//route to given articles
-app.get('/article/:id', (req, res)=>{
-    Article.findById(req.params.id, (err, article)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render('anArticle', {
-                article:article});
-        }
-    });
-});
 
-//route to edit article
-app.get('/article/edit/:id', function(req, res){
-    Article.findById(req.params.id, (err, article)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render('editArticle', {
-                article : article});
-        }
-        
-    });
-});
-
-//add article route
-app.post('/articles/add', function(req, res){
-    let article = new Article();
-    article.title = req.body.title;
-    article.author = req.body.author;
-    article.body = req.body.body;
-
-    article.save((err)=>{
-        if(err){
-            console.log(err);
-            return;
-        }else{
-            req.flash('success', 'Article Added')
-            res.redirect('/');
-        }
-    })
-});
-
-//edit article route
-app.post('/articles/edit/:id', function(req, res){
-    let query = {_id: req.params.id};
-    let editArticle = {};
-    editArticle.title = req.body.title;
-    editArticle.author = req.body.author;
-    editArticle.body = req.body.body;
-
-    Article.update(query, editArticle, (err)=>{
-        if(err){
-            console.log(err);
-            return;
-        }else{
-            res.redirect('/');
-        }
-    });
-});
-
-//delete
-app.delete('/article/:id', (req, res)=>{
-    let query = {_id: req.params.id};
-    Article.findById(req.params.id).remove((err)=>{
-        if (err){
-            console.log(err);
-            // return;
-        }else{
-            res.send('success');    //must be, because called from the Client side (main.js)
-        }
-    })
-});
 
 //start server
 app.listen(3000,()=>{
