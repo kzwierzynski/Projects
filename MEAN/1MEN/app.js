@@ -5,10 +5,12 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
+const config = require('./config/database');
+const passport = require('passport');
 
 
 //connect to db
-mongoose.connect('mongodb://localhost/MEN1');
+mongoose.connect(config.database);
 let db = mongoose.connection;
 
 //check connection
@@ -62,6 +64,18 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Passport Config
+require('./config/passport')(passport);
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//set global variable with user, after logging in, null if not logged in
+app.get('*', function(req, res, next){
+    res.locals.user = req.user || null;
+    next();
+});
+
 
 // ------ROUTES-----------------------
 
@@ -83,6 +97,8 @@ app.get('/', function(req, res){
 // ------ROUTE files-----------------------
 let articles = require('./routes/articles');
 app.use('/articles', articles);
+let users = require('./routes/users');
+app.use('/users', users);
 
 
 

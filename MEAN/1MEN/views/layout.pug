@@ -14,9 +14,20 @@ html
                     li.nav-item
                         a.nav-link(href='/')
                             | Home 
-                            span.sr-only (current)
-                    li.nav-item
-                        a.nav-link(href='/articles/add') Add Article
+                            //- span.sr-only (current)
+                    if user        
+                        li.nav-item
+                            a.nav-link(href='/articles/add') Add Article
+                ul.navbar-nav.right
+                    if user
+                        li.nav-item
+                            a.nav-link(href='/users/logout') Logout (#{user.username})
+                    else
+                        li.nav-item
+                            a.nav-link(href='/users/register') Register
+                                //- span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/users/login') Login
         .container
             != messages('messages', locals)
             if errors
@@ -26,7 +37,7 @@ html
             br
             hr
             footer
-                p Copywright &copy; 2017
+                p Copywright &copy; 2018
         script(src="/bower_components/jquery/dist/jquery.js")
         script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
         script(src="/js/main.js")
