@@ -1,0 +1,8 @@
+// function to decide if on given background color better visible is light or dark text
+@function set-txt-color($color-bg){ 
+    @if(lightness($color-bg) >50){
+        @return #222;
+    } @else {
+        @return #ddd;
+    }
+}

@@ -1,0 +1,70 @@
+.container {
+  display: grid;
+  /* number of rows / then columns */
+  grid-template: repeat(2, 50px) / repeat(3, 1fr);  
+  grid-gap: 3px;
+}
+/*  */
+
+/* grid-column: 2 / -1; - od drugiej kolumny do ostatniej (niezależnie od liczby kolumn)
+jeśli "-2" to do przed ostatniej itp -  */
+.container {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+  grid-column: 2 / -1;
+}
+.menu {
+  grid-row: 1 / 3;
+}
+.content {
+  grid-column: 2 / -1;
+}
+.footer {
+  grid-column: 1 / -1;
+}
+
+
+
+/* Header, menu, content, footer -> 
+"template-areas" to easily change the layout (eg. between PC and phone) 
+"Height: 100%" to spread accross whole height with rows: auto*/
+.container {
+  height: 100%;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  grid-template-areas: 
+      ". h h h h h h h h h h ."
+      "m c c c c c c c c c c c"
+      ". f f f f f f f f f f .";
+}
+.header {
+  grid-area: h;
+}
+.menu {
+  grid-area: m;
+}
+.content {
+  grid-area: c;
+}
+.footer {
+  grid-area: f;
+}
+
+/*  */
+/* 12 elements, 
+auto-fit for max colomns in a row, 
+min-max to distribute extra space between all the remaining colomns
+minmax(100px, 1fr)  - min 100px,  */
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+}

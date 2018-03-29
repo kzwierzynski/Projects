@@ -1,0 +1,22 @@
+body {
+  background: #333;
+  color: #fff;
+  text-align: center; }
+
+p {
+  margin-bottom: 50px; }
+
+a {
+  text-decoration: none; }
+
+.button, .btn1, .btn2 {
+  padding: 1rem 1.5rem;
+  margin: 0.5rem; }
+
+.btn1 {
+  background-color: #06703e;
+  color: #ddd; }
+
+.btn2 {
+  background-color: #66ec17;
+  color: #222; }

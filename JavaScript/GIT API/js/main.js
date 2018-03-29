@@ -5,15 +5,15 @@
      $.ajax({
        url: "https://api.github.com/users/"+username,
        data:{
-         cliend_id: 'dbc4b8fdf580ca088284',
-         client_secret: '0b367dbb3c68361689caeef3bd1b0d6b7a36b435'
+         cliend_id: 'c70d21cfb5b205bcdc4a',
+         client_secret: 'ff8939d234a97d1c119b88c686badd23392f45d4'
        }
      }).done( function(user){
        $.ajax({
          url: "https://api.github.com/users/"+username+"/repos",
          data:{
-           cliend_id: 'dbc4b8fdf580ca088284',
-           client_secret: '0b367dbb3c68361689caeef3bd1b0d6b7a36b435',
+           cliend_id: 'c70d21cfb5b205bcdc4a',
+           client_secret: 'ff8939d234a97d1c119b88c686badd23392f45d4',
            sort: 'updated: desc',
            per_page: '5'
          }

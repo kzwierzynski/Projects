@@ -1,0 +1,66 @@
+// Variable Overrides from Bootsrtap
+$prim: #0b88ad;
+$primd: darken(#0b88ad, 10%);
+$priml: lighten(#0b88ad, 10%);
+$prim1: unquote('#0b88ad75');
+$prim2: unquote('#0b88ad2f');
+$prim3: unquote('#0b88ad0b');
+
+$inf: #3794fd;
+$infd: darken(#3794fd, 10%);
+$infl: lighten(#3794fd, 10%);
+$inf1: unquote('#3794fd75');
+$inf2: unquote('#3794fd2f');
+$inf3: unquote('#3794fd0b');
+
+$brd: unquote('#4b4b4b27');
+$brdl: unquote('#83838327');
+$brdd: unquote('#2c2c2c27');
+
+$theme-colors: (
+  "primary": $prim,
+  "info" : $inf
+);
+$body-bg: $prim3;
+
+
+// Bootstrap Sass Imports
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body{
+    min-width: 500px;
+    font-family: 'Lato', sans-serif
+}
+
+nav{
+    border-bottom: solid $brd 2px !important;
+    color: white !important;
+}
+
+.jumbotron {
+    background-color: #ffffff !important;
+    border-top: 3px solid $brd;
+}
+
+.jumbotron img{
+    max-height: 300px;
+    border: $brdl solid 2px !important;
+    border-top: $brdl solid 1px !important;
+}
+
+.btn{
+    // border-style: outset;
+    border-bottom: solid $brd 2px !important;
+    
+}
+
+
+.tools ul, li{
+    border: none !important;
+    font-weight: 600;
+    // font-size: 110% !important;
+}
+
+section .langicon{
+    top: -4px !important;
+}

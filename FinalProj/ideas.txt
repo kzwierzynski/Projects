@@ -1,0 +1,21 @@
+PanAnimals social app:
+Users with their favourite Movies, Music, Bucketlist + places they want to visit
+Bucketlist + toDo + inProgress (with time since moved there (timeNow-timeDB)) + achieved + moving visually with mouse (ondrag + ondrop) + save to DB (time dragged to inProgress)
+imdb app + open modal on click with info + add to favorites (heart on hover) + add to wanna watch + opacity + save DB
+	+ew poll app + star rating + possibility to rate
+GoogleMaps visited/wanting to visit places (2 different flags/colors): mark country by click + from form + save to DB
+
+add nodeJS + ExpressJS + MongoDB + Mongoose (3 models: )
+same colors pallette but slightly differently used
+
+
+Front-end:
+pananimals1 + 2 + scroll reveal + parallax + Memory Game
+
+FullStack: 
+See Repos: BucketList, passport, IMBD API, 
+ang4app?
+
+Git API -> OAuth odœwie¿yæ
+IMDB API, 
+template literals
