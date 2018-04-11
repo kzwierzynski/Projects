@@ -13,9 +13,12 @@ Front-end:
 pananimals1 + 2 + scroll reveal + parallax + Memory Game
 
 FullStack: 
-See Repos: BucketList, passport, IMBD API, 
+See Repos: BucketList, passport, IMBD API, email sending responsive form
 ang4app?
 
 Git API -> OAuth odœwie¿yæ
 IMDB API, 
 template literals
+
+showcase: 
+See my projects that include a customized memory game, parrallax effect, scroll revealing animations and more. Click the button below to get access to my repo with front end applications.

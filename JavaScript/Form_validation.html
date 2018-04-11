@@ -24,6 +24,7 @@
 		}
 
 		function checkName(id, helpId){
+			console.log(id)
 			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
 			var helpString="Please, enter a valid name";
 			return isOk(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, id.value, helpId, helpString);
@@ -47,7 +48,8 @@
 		function checkPhone(id, helpId){
 			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
 			var helpString="Please, enter a valid phone no. eg. +48 513 636 893";
-			return isOk(/^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/, id.value, helpId, helpString);
+			// return isOk(/^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{2,3}[ -]?\d{2,3}[ -]?\d{2,3}(?!\w)/, id.value, helpId, helpString);
+			return isOk(/^[\+]?[(]?[0-9]{2,4}[)]?[-\s\. ]?[0-9]{2,3}[-\s\. ]?[0-9]{2,3}[-\s\. ]?[0-9]{2,3}$/, id.value, helpId, helpString);
 		}
 		function checkEmail(id, helpId){
 			//var regExName=/^[A-Za-z\.\' \-']{2,15}\s?[A-Za-z\.\' \-']{2,15}?/;
